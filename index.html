@@ -1,0 +1,33 @@
+<script>var exports = {"__esModule": { value: true }}</script>
+<script src="./index.js"></script>
+
+<html>
+<form id="countryForm">
+<label for="country">Country:</label><br>
+<input id="country" type="text"><br>
+<label for="city">City:</label><br>
+<input id="city" type="text"><br>
+<label for="population">Population:</label><br>
+<input id="population" type="number"><br>
+<button type="submit">Add Country</button>
+</form>
+<ul id="myList"></ul><br><br><br>
+
+<label for="search">Search Country:</label>
+<input id='search' type="search" onkeyup="filterList()">
+<ul id="myList2"></ul><br><br><br>
+<script>
+    document.getElementById('countryForm').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+      const city = document.getElementById('city').value;
+      const country = document.getElementById('country').value;
+      const population = parseInt(document.getElementById('population').value, 10);
+      addDetails({ country, city, population });
+    });
+
+    function filterList() {
+      const searchValue = document.getElementById('search').value;
+      filterByCountry(searchValue); 
+    }
+</script>
+</html>
